@@ -36,9 +36,9 @@ class Img {
                 reject(`Invalid URL "${url}"`);
                 return;
             }
-            let validHosts = ["files.catbox.moe", "litter.catbox.moe"];
+            let validHosts = ["files.catbox.moe", "litter.catbox.moe", "imgbb.com"];
             if (!validHosts.includes(urlObj.hostname)) {
-                reject(`Hostname "${urlObj.hostname}" is not allowed. Only files.catbox.moe and litter.catbox.moe are allowed.`);
+                reject(`Hostname "${urlObj.hostname}" is not allowed. Only files.catbox.moe and litter.catbox.moe and imgbb are allowed.`);
                 return;
             }
             let img = new Image();
@@ -53,7 +53,7 @@ class Img {
                 resolve(new Img(canvas));
             };
 
-            img.onerror = () => reject(`Invalid image ${url}`);
+            img.onerror = () => reject(`error: Invalid image ${url}`);
         });
     }
 
@@ -353,3 +353,4 @@ setTimeout(() => {
         room: "shop",
     });
 }, 1000);
+
